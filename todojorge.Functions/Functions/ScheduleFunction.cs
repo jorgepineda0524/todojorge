@@ -1,9 +1,8 @@
-using System;
-using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Table;
+using System;
+using System.Threading.Tasks;
 using todojorge.Functions.Entities;
 
 namespace todojorge.Functions.Functions
@@ -12,7 +11,7 @@ namespace todojorge.Functions.Functions
     {
         [FunctionName("ScheduleFunction")]
         public static async Task Run(
-            [TimerTrigger("0 */2 * * * *")] TimerInfo myTimer, 
+            [TimerTrigger("0 */2 * * * *")] TimerInfo myTimer,
             [Table("todo", Connection = "AzureWebJobsStorage")] CloudTable todoTable,
             ILogger log)
         {
