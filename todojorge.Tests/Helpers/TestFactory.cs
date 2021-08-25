@@ -16,7 +16,7 @@ namespace todojorge.Tests.Helpers
         {
             return new TodoEntity
             {
-                ETag = "",
+                ETag = "*",
                 PartitionKey = "TODO",
                 RowKey = Guid.NewGuid().ToString(),
                 CreatedTime = DateTime.UtcNow,
@@ -80,7 +80,7 @@ namespace todojorge.Tests.Helpers
         public static ILogger CreateLogger(LoggerTypes type = LoggerTypes.Null)
         {
             ILogger logger;
-            if (type == LoggerTypes.Null)
+            if (type == LoggerTypes.List)
             {
                 logger = new ListLogger();
             }
